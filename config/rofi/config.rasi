@@ -1,0 +1,107 @@
+* {
+    background:                  rgba (30, 30, 30, 95%);
+    background-alt:              rgba (38, 38, 38, 95%);
+    foreground:                  rgba (197, 200, 198, 100%);
+
+    selected-normal-foreground:  rgba (111, 143, 143, 100%);
+    selected-normal-background:  rgba (44, 49, 60, 100%);
+
+    normal-foreground:           @foreground;
+    normal-background:           @background;
+
+    alternate-normal-background: rgba (38, 38, 38, 60%);
+    alternate-normal-foreground: @foreground;
+
+    active-foreground:           rgba (111, 143, 143, 100%);
+    active-background:           rgba (38, 38, 38, 40%);
+
+    urgent-foreground:           rgba (168, 108, 108, 100%);
+    urgent-background:           rgba (38, 38, 38, 40%);
+
+    border-color:                rgba (60, 60, 60, 100%);
+    separatorcolor:              rgba (29, 31, 33, 100%);
+
+    spacing:                     4;
+}
+
+/* ventana */
+window {
+    width: 420px;
+    background-color: rgba (34, 34, 34, 95%);
+    border: 1;
+    border-radius: 12;
+    padding: 6;
+    border-color: rgba (60, 60, 60, 40%);
+}
+
+
+/* contenedor */
+mainbox {
+    border: 0;
+    padding: 0;
+}
+
+/* lista */
+listview {
+    border: 0;
+    spacing: 3;
+    scrollbar: false;
+    padding: 2 0 0 0;
+}
+
+/* elementos */
+element {
+    border: 0;
+    padding: 4 8;
+    border-radius: 6;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @normal-foreground;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+element selected.active {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+/* texto */
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+/* eliminar blancos heredados */
+textbox {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+/* input */
+inputbar {
+    children: [ prompt, entry ];
+    background-color: rgba (38, 38, 38, 95%);
+    padding: 6 10;
+    border-radius: 8;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+prompt {
+    text-color: rgba (92, 99, 112, 100%);
+}
+
+/* highlight */
+highlight {
+    background-color: rgba (44, 49, 60, 100%);
+    text-color: rgba (111, 143, 143, 100%);
+}

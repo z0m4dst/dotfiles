@@ -1,0 +1,33 @@
+
+[Settings]
+
+# Tema GTK (apps como Thunar)
+gtk-theme-name=Adwaita-dark
+
+# Iconos
+gtk-icon-theme-name=Papirus-Dark
+
+# Fuente (coherente con tu sistema)
+gtk-font-name=JetBrainsMono Nerd Font Mono 13
+
+# Cursor
+gtk-cursor-theme-name=Bibata-Modern-Ice
+gtk-cursor-theme-size=24
+
+# Toolbar
+gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+
+# Imágenes en botones/menús (más limpio = 0)
+gtk-button-images=0
+gtk-menu-images=0
+
+# Sonidos (opcional)
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
+
+# Renderizado de fuentes
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintslight
+gtk-xft-rgba=rgb

@@ -1,0 +1,102 @@
+; =========================================================
+; COLORS — paleta base (coherente con Alacritty)
+; =========================================================
+[colors]
+bg = #1e1e1e
+fg = #c5c8c6
+gray = #5c6370
+cyan = #6f8f8f
+red = #a86c6c
+
+
+; =========================================================
+; BAR — estructura general
+; =========================================================
+[bar/main]
+width = 96%
+height = 45
+radius = 10
+
+offset-x = 2%
+offset-y = 6
+
+margin-left = 8
+margin-right = 8
+margin-top = 6
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+border-size = 0
+line-size = 1
+line-color = #2a2a2a
+
+padding-left = 3
+padding-right = 3
+
+module-margin = 4
+
+; Fuente unificada con terminal (consistencia visual total)
+font-0 = JetBrainsMono Nerd Font Mono:size=14
+
+modules-left = bspwm
+modules-center = core
+modules-right = date
+
+enable-ipc = true
+
+
+; =========================================================
+; BSPWM — workspaces (Opción C: híbrido limpio)
+; =========================================================
+[module/bspwm]
+type = internal/bspwm
+format = <label-state>
+
+; ACTIVO → sólido + color acento
+label-focused = "●"
+label-focused-foreground = ${colors.cyan}
+label-focused-margin = 1
+
+; OCUPADO → sólido neutro
+label-occupied = "●"
+label-occupied-foreground = ${colors.fg}
+label-occupied-margin = 1
+
+; VACÍO → contorno sutil
+label-empty = "○"
+label-empty-foreground = ${colors.gray}
+label-empty-margin = 1
+
+
+; =========================================================
+; CORE — centro (punto de interacción / “menú”)
+; =========================================================
+[module/core]
+type = custom/text
+
+; Branding mínimo (puede evolucionar después)
+format = <label>
+label = z0m4{OS}
+
+label-foreground = ${colors.cyan}
+label-padding = 1
+
+; Interacción (opcional pero útil)
+click-left = rofi -show drun
+click-right = rofi -show run
+
+
+; =========================================================
+; DATE — hora + estado de updates (sin ruido)
+; =========================================================
+[module/date]
+type = custom/script
+interval = 10
+
+; Script unificado → decide color según estado
+exec = ~/.config/polybar/scripts/updates.sh
+
+format = <label>
+label = %output%
+label-padding = 1

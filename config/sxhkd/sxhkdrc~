@@ -1,0 +1,122 @@
+# =========================================================
+# z0m4 {OS} KEYMAP — minimal / consistente / funcional
+# =========================================================
+
+
+# =========================================================
+# LAUNCHER
+# =========================================================
+
+# Aplicaciones
+alt + space
+    rofi -show drun
+
+
+# =========================================================
+# TERMINAL / APPS
+# =========================================================
+
+# Terminal principal
+alt + Return
+    alacritty
+
+# Navegador (opcional por ahora)
+ctrl + alt + f
+    firefox
+
+
+# =========================================================
+# WORKSPACES
+# =========================================================
+
+# Cambiar workspace
+alt + {1-4}
+    bspc desktop -f {1-4}
+
+# Mover ventana a workspace
+alt + shift + {1-4}
+    bspc node -d {1-4}
+
+
+# =========================================================
+# FOCO DE VENTANAS
+# =========================================================
+
+# Navegación direccional
+alt + {Left,Down,Up,Right}
+    bspc node -f {west,south,north,east}
+
+# Navegación cíclica (flujo rápido)
+alt + Tab
+    bspc node -f next.local
+
+
+# =========================================================
+# MOVER VENTANAS
+# =========================================================
+
+alt + shift + {Left,Down,Up,Right}
+    bspc node -s {west,south,north,east}
+
+
+# =========================================================
+# ESTADOS DE VENTANA
+# =========================================================
+
+# Cerrar ventana
+alt + q
+    bspc node -c
+
+# Fullscreen (modo total)
+alt + f
+    bspc node -t fullscreen
+
+# Floating (toggle)
+alt + shift + f
+    bspc node -t ~floating
+
+# Monocle (modo foco limpio)
+alt + m
+    bspc desktop -l next
+
+
+# =========================================================
+# LAYOUT (dirección de split)
+# =========================================================
+
+# Vertical (izq/der)
+ctrl + alt + v
+    bspc node -p east
+
+# Horizontal (arriba/abajo)
+alt + h
+    bspc node -p south
+
+
+# =========================================================
+# SISTEMA
+# =========================================================
+
+# Reiniciar bspwm
+ctrl + alt + r
+    bspc wm -r
+
+# Recargar sxhkd
+alt + shift + r
+    pkill -USR1 -x sxhkd
+
+# Reiniciar polybar
+alt + b
+    pkill polybar && polybar main &
+
+
+# =========================================================
+# UTILIDADES
+# =========================================================
+
+# Cerrar rofi
+alt + Escape
+    pkill rofi
+    
+shift + space     
+   clipz menu    

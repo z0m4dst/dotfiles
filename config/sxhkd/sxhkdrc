@@ -1,0 +1,120 @@
+# =========================
+# z0m4 SXHKD (BASE FINAL)
+# =========================
+
+# -------- CORE --------
+
+# Clipboard (clipz)
+ctrl + g
+    bash -c 'DISPLAY=:0 ~/.local/bin/clipz menu'
+
+# Terminal
+ctrl + alt + Return
+    alacritty
+
+
+# -------- BSPWM --------
+
+# Recargar bspwm
+ctrl + alt + r
+    bspc wm -r
+
+# Navegación de ventanas
+ctrl + Left
+    bspc node -f west
+
+ctrl + Right
+    bspc node -f east
+
+ctrl + Up
+    bspc node -f north
+
+ctrl + Down
+    bspc node -f south
+
+
+# -------- VENTANAS --------
+
+# Cerrar ventana
+ctrl + q
+    bspc node -c
+
+# Fullscreen
+ctrl + f
+    bspc node -t fullscreen
+
+# Toggle flotante
+ctrl + shift + space
+    bspc node -t floating
+
+
+# -------- PRESELECCIÓN --------
+
+# Definir dónde abrir la próxima ventana
+ctrl + shift + Down
+    bspc node -p south
+
+ctrl + shift + Up
+    bspc node -p north
+
+ctrl + shift + Left
+    bspc node -p west
+
+ctrl + shift + Right
+    bspc node -p east
+
+# Cancelar preselección
+ctrl + shift + c
+    bspc node -p cancel
+
+
+# -------- SISTEMA --------
+
+# Recargar sxhkd
+ctrl + alt + s
+    pkill -USR1 sxhkd
+# -------- WORKSPACES --------
+
+# Cambiar de escritorio
+alt + 1
+    bspc desktop -f ^1
+
+alt + 2
+    bspc desktop -f ^2
+
+alt + 3
+    bspc desktop -f ^3
+
+alt + 4
+    bspc desktop -f ^4
+
+
+# Mover ventana a escritorio
+alt + shift + 1
+    bspc node -d ^1
+
+alt + shift + 2
+    bspc node -d ^2
+
+alt + shift + 3
+    bspc node -d ^3
+
+alt + shift + 4
+    bspc node -d ^4
+# -------- MOVE (SWAP) --------
+
+ctrl + shift + Left
+    bspc node -s west
+
+ctrl + shift + Right
+    bspc node -s east
+
+ctrl + shift + Up
+    bspc node -s north
+
+ctrl + shift + Down
+    bspc node -s south
+#----------Rofi------------
+alt + space
+    rofi -show drun
+

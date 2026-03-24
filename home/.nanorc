@@ -1,0 +1,37 @@
+## =========================
+## z0m4 NANO (THEME FIX)
+## =========================
+
+## -------- BASE --------
+set titlecolor  cyan
+set autoindent
+set tabsize 4
+set tabstospaces
+set constantshow
+set softwrap
+
+## -------- HISTORIAL --------
+set historylog
+set positionlog
+
+## -------- BACKUP --------
+set backup
+
+## -------- UI --------
+
+# números (cyan brillante + fondo gris oscuro)
+set linenumbers
+set numbercolor brightcyan
+
+# barra inferior (gris oscuro uniforme)
+set statuscolor cyan
+
+# teclas y funciones invisibles
+set keycolor brightblack
+set functioncolor cyan 
+
+# errores visibles
+set errorcolor brightred
+
+# selección suave (sin bloque feo)
+set selectedcolor brightblack

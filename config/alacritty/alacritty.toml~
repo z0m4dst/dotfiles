@@ -1,0 +1,93 @@
+# ========================================
+# WINDOW
+# ========================================
+[window]
+opacity = 0.98
+padding = { x = 10, y = 10 }
+decorations = "none"
+
+
+# ========================================
+# FONT
+# ========================================
+[font]
+size = 15
+
+# Fuente principal (modo “serio / limpio”)
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font Mono", style = "Bold Italic" }
+
+# Ajuste fino de alineación
+glyph_offset = { x = 0, y = 1 }
+
+# ========================================
+# COLORS (tema mate, bajo contraste)
+# ========================================
+[colors.primary]
+background = "#1e1e1e"
+foreground = "#c5c8c6"
+
+[colors.cursor]
+text = "#1e1e1e"
+cursor = "#8f9faf"
+
+[colors.selection]
+text = "#d0d0d0"
+background = "#3a3f4b"
+
+[colors.normal]
+black   = "#1e1e1e"
+red     = "#a86c6c"
+green   = "#8fbf7f"
+yellow  = "#c8b47a"
+blue    = "#5f87af"
+magenta = "#8a7f8f"
+cyan    = "#6f8f8f"
+white   = "#c5c8c6"
+
+[colors.bright]
+black   = "#4b4b4b"
+red     = "#c07a7a"
+green   = "#9fcf8f"
+yellow  = "#d8c48a"
+blue    = "#6f97bf"
+magenta = "#9a8f9f"
+cyan    = "#7f9f9f"
+white   = "#e0e0e0"
+
+
+# ========================================
+# CURSOR
+# ========================================
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+
+
+# ========================================
+# SCROLL
+# ========================================
+[scrolling]
+history = 50000
+multiplier = 3
+
+
+# ========================================
+# MOUSE
+# ========================================
+[mouse]
+hide_when_typing = true
+
+
+# ========================================
+# KEYBOARD
+# ========================================
+[keyboard]
+bindings = [
+  # Escape rápido (útil si algo se rompe)
+  { key = "F1", mods = "None", chars = "\u001b" },
+
+  { key = "C", mods = "Control", action = "Copy" },
+  { key = "V", mods = "Control", action = "Paste" }
+]

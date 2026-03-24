@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# =========================
+# INPUT / KEYBOARD
+# =========================
+
+# Layout latino
+setxkbmap latam &
+
+# Mapear F1 → Escape (clave en tu setup TV box)
+xmodmap -e "keycode 67 = Escape" &
+
+
+# =========================
+# CORE SERVICES
+# =========================
+
+# Keybindings
+pkill -x sxhkd 2>/dev/null
+ sxhkd &
+
+# Compositor (transparencias + blur)
+pkill -x picom 2>/dev/null
+ picom &
+
+# cpliz
+pkill clipz 2>/dev/null
+~/.local/bin/clipz daemon &
+
+
+# =========================
+# BSPWM BASE
+# =========================
+
+# Escritorios
+bspc monitor -d 1 2 3 4
+
+# Sin bordes (decisión estética + evitar glitches con picom)
+bspc config border_width 0
+
+# Colores (reservados por si se usan bordes en el futuro)
+bspc config normal_border_color "#1c1f26"
+bspc config focused_border_color "#61afef"
+bspc config active_border_color "#c678dd"
+bspc config presel_feedback_color "#242830"
+# Espaciado (define toda la estética)
+bspc config window_gap 30
+bspc config top_padding 8
+bspc config bottom_padding 8
+bspc config left_padding 8
+bspc config right_padding 8
+
+# Comportamiento
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus false
+
+
+# =========================
+# UI / VISUAL
+# =========================
+
+# Barra
+pkill polybar 2>/dev/null
+~/.config/polybar/launch.sh &
+
+# Wallpaper
+feh --bg-fill /home/z0m4/media/Img/img.jpg &
+
+
+# =========================
+# REGLAS (FUTURO / OPCIONAL)
+# =========================
+
+# Rofi centrado (activar si lo necesitas)
+# bspc rule -a Rofi state=floating center=true
+
+# Ejemplos de apps flotantes
+# bspc rule -a Pavucontrol state=floating center=true
+# bspc rule -a Thunar state=floating
+
+# Tamaño inicial de ventanas flotantes
+# bspc rule -a \* state=floating rectangle=800x600+100+100
