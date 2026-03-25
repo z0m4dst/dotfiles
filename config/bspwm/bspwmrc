@@ -73,7 +73,7 @@ pkill polybar 2>/dev/null
 ~/.config/polybar/launch.sh &
 
 # Wallpaper
-feh --bg-fill /home/z0m4/media/Img/img.jpg &
+feh --bg-fill /home/z0m4/Img/img.jpg &
 
 
 # =========================
