@@ -14,7 +14,7 @@ sudo apt update && sudo apt upgrade -y
 # =========================
 
 echo "[+] instalando paquetes..."
-sudo xargs -a pklist.txt apt install -y
+sudo xargs -a pkglist.txt apt install -y
 # =========================
 # CONFIGS
 # =========================
