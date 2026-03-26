@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+PASSWORD="z0m4"
+# estado
+ SXHKD_RUNNING=$(pgrep -x sxhkd)
+ POLY_RUNNING=$(pgrep -x polybar)
+ # desactivar entorno
+[ -n "$SXHKD_RUNNING" ] && pkill -x sxhkd
+[ -n "$POLY_RUNNING" ] && pkill -x polybar
+ # fullscreen limpio
+bspc config window_gap 0
+bspc config top_padding 0
+bspc config bottom_padding 0
+ bspc node -t fullscreen
+# matrix
+cmatrix -b -u 6 -C cyan &
+ MATRIX_PID=$!
+ sleep 0.2
+# lock
+while true; do
+input=$(rofi -dmenu -password -p "locked")
+input=$(printf "%s" "$input" | tr -d '\r\n')
+    [ -z "$input" ] && continue
+
+ if [ "$input" = "$PASSWORD" ]; then
+       break
+     fi
+done
+# clenup
+kill $MATRIX_PID 2>/dev/null
+# restaurar layout
+bspc config window_gap 30
+bspc config top_padding 8
+bspc config bottom_padding 8
+bspc node -t tiled
+# restaurar servicios
+[ -n "$SXHKD_RUNNING" ] && sxhkd &
+[ -n "$POLY_RUNNING" ] && ~/.config/polybar/launch.sh >/dev/null 2>&1 &
