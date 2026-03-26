@@ -10,7 +10,6 @@ feh
 file-roller
 fzf
 git
-gnome-themes-extra
 lsd
 lxappearance
 man-db
