@@ -99,12 +99,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-alias ls="lsd --group-directories-first --icon never"
-alias ll="lsd -l --icon never"
-alias la="lsd -a --icon never"
-alias lt="lsd --tree --icon never"
+alias ls="lsd --group-directories-first --icon always"
+alias ll="lsd -l --icon always"
+alias la="lsd -a --icon always"
+alias lt="lsd --tree --icon always"
 
-alias cat="batcat --paging=never"
+alias cat="batcat --paging=nver"
 alias bat="batcat --paging=never"
 
 alias cls="clear"
