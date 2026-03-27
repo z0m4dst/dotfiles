@@ -1,0 +1,46 @@
+# Archivos de sistema
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak
+*.old
+*.rej
+
+# Configuración local sensible
+*.env
+config.json
+config.local
+*.key
+*.pem
+*.crt
+*.sqlite
+*.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# Dotfiles específicos
+*~
+.cache/
+.local/
+.history
+.profile.local
+.bash_history
+.zsh_history
+.zcompdump*
+
+# Node / Python / compilados
+node_modules/
+*.pyc
+__pycache__/
+dist/
+build/
