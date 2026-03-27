@@ -1,122 +1,120 @@
-# =========================================================
-# z0m4 {OS} KEYMAP — minimal / consistente / funcional
-# =========================================================
+# =========================
+# z0m4 SXHKD (BASE FINAL)
+# =========================
 
+# -------- CORE --------
 
-# =========================================================
-# LAUNCHER
-# =========================================================
+# Clipboard (clipz)
+ctrl + g
+    bash -c 'DISPLAY=:0 ~/.local/bin/clipz menu'
 
-# Aplicaciones
-alt + space
-    rofi -show drun
-
-
-# =========================================================
-# TERMINAL / APPS
-# =========================================================
-
-# Terminal principal
-alt + Return
+# Terminal
+ctrl + alt + Return
     alacritty
 
-# Navegador (opcional por ahora)
-ctrl + alt + f
-    firefox
 
+# -------- BSPWM --------
 
-# =========================================================
-# WORKSPACES
-# =========================================================
-
-# Cambiar workspace
-alt + {1-4}
-    bspc desktop -f {1-4}
-
-# Mover ventana a workspace
-alt + shift + {1-4}
-    bspc node -d {1-4}
-
-
-# =========================================================
-# FOCO DE VENTANAS
-# =========================================================
-
-# Navegación direccional
-alt + {Left,Down,Up,Right}
-    bspc node -f {west,south,north,east}
-
-# Navegación cíclica (flujo rápido)
-alt + Tab
-    bspc node -f next.local
-
-
-# =========================================================
-# MOVER VENTANAS
-# =========================================================
-
-alt + shift + {Left,Down,Up,Right}
-    bspc node -s {west,south,north,east}
-
-
-# =========================================================
-# ESTADOS DE VENTANA
-# =========================================================
-
-# Cerrar ventana
-alt + q
-    bspc node -c
-
-# Fullscreen (modo total)
-alt + f
-    bspc node -t fullscreen
-
-# Floating (toggle)
-alt + shift + f
-    bspc node -t ~floating
-
-# Monocle (modo foco limpio)
-alt + m
-    bspc desktop -l next
-
-
-# =========================================================
-# LAYOUT (dirección de split)
-# =========================================================
-
-# Vertical (izq/der)
-ctrl + alt + v
-    bspc node -p east
-
-# Horizontal (arriba/abajo)
-alt + h
-    bspc node -p south
-
-
-# =========================================================
-# SISTEMA
-# =========================================================
-
-# Reiniciar bspwm
+# Recargar bspwm
 ctrl + alt + r
     bspc wm -r
 
+# Navegación de ventanas
+ctrl + Left
+    bspc node -f west
+
+ctrl + Right
+    bspc node -f east
+
+ctrl + Up
+    bspc node -f north
+
+ctrl + Down
+    bspc node -f south
+
+
+# -------- VENTANAS --------
+
+# Cerrar ventana
+ctrl + q
+    bspc node -c
+
+# Fullscreen
+ctrl + f
+    bspc node -t fullscreen
+
+# Toggle flotante
+ctrl + shift + space
+    bspc node -t floating
+
+
+# -------- PRESELECCIÓN --------
+
+# Definir dónde abrir la próxima ventana
+ctrl + shift + Down
+    bspc node -p south
+
+ctrl + shift + Up
+    bspc node -p north
+
+ctrl + shift + Left
+    bspc node -p west
+
+ctrl + shift + Right
+    bspc node -p east
+
+# Cancelar preselección
+ctrl + shift + c
+    bspc node -p cancel
+
+
+# -------- SISTEMA --------
+
 # Recargar sxhkd
-alt + shift + r
-    pkill -USR1 -x sxhkd
+ctrl + alt + s
+    pkill -USR1 sxhkd
+# -------- WORKSPACES --------
 
-# Reiniciar polybar
-alt + b
-    pkill polybar && polybar main &
+# Cambiar de escritorio
+alt + 1
+    bspc desktop -f ^1
+
+alt + 2
+    bspc desktop -f ^2
+
+alt + 3
+    bspc desktop -f ^3
+
+alt + 4
+    bspc desktop -f ^4
 
 
-# =========================================================
-# UTILIDADES
-# =========================================================
+# Mover ventana a escritorio
+alt + shift + 1
+    bspc node -d ^1
 
-# Cerrar rofi
-alt + Escape
-    pkill rofi
-    
-shift + space     
-   clipz menu    
+alt + shift + 2
+    bspc node -d ^2
+
+alt + shift + 3
+    bspc node -d ^3
+
+alt + shift + 4
+    bspc node -d ^4
+# -------- MOVE (SWAP) --------
+
+ctrl + shift + Left
+    bspc node -s west
+
+ctrl + shift + Right
+    bspc node -s east
+
+ctrl + shift + Up
+    bspc node -s north
+
+ctrl + shift + Down
+    bspc node -s south
+#----------Rofi------------
+alt + space
+    rofi -show drun
+

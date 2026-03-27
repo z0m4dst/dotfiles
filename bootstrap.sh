@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
 clear
-echo "[+] configurando mirrors..."
+#echo "[+] configurando mirrors..."
 
-cat > "$PREFIX/etc/apt/sources.list" <<EOF
-deb https://packages.termux.dev/apt/termux-main stable main
-EOF
+#cat > "$PREFIX/etc/apt/sources.list" <<EOF
+#deb https://packages.termux.dev/apt/termux-main stable main
+#EOF
 set -e
 
 # =========================
@@ -94,6 +94,7 @@ if [ ! -d "$HOME/storage/shared" ]; then
 
   TIMEOUT=15
   COUNT=0
+
 
   while [ ! -d "$HOME/storage/shared" ]; do
     sleep 1

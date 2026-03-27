@@ -20,16 +20,16 @@ ctrl + alt + r
     bspc wm -r
 
 # Navegación de ventanas
-ctrl + Left
+ctrl + alt + Left
     bspc node -f west
 
-ctrl + Right
+ctrl + alt + Right
     bspc node -f east
 
-ctrl + Up
+ctrl + alt + Up
     bspc node -f north
 
-ctrl + Down
+ctrl + alt + Down
     bspc node -f south
 
 
@@ -116,5 +116,5 @@ ctrl + shift + Down
     bspc node -s south
 #----------Rofi------------
 alt + space
-    rofi -show drun
+    rofi -show drun --show icons
 
