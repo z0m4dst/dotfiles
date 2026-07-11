@@ -2,7 +2,7 @@
 # WINDOW
 # ========================================
 [window]
-opacity = 0.98
+opacity = 0.80
 padding = { x = 10, y = 10 }
 decorations = "none"
 
@@ -11,9 +11,9 @@ decorations = "none"
 # FONT
 # ========================================
 [font]
-size = 15
+size = 8
 
-# Fuente principal (modo “serio / limpio”)
+# Fuente principal 
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
