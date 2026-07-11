@@ -1,3 +1,4 @@
+
 # =========================
 # KEYBINDINGS (FIX TERMINAL)
 # =========================
@@ -104,8 +105,8 @@ alias ll="lsd -l --icon always"
 alias la="lsd -a --icon always"
 alias lt="lsd --tree --icon always"
 
-alias cat="batcat --paging=nver"
-alias bat="batcat --paging=never"
+alias cat="batcat --paging never"
+alias bat="batcat --paging never"
 
 alias cls="clear"
 alias h="history"
@@ -164,3 +165,10 @@ export _ZO_FZF_OPTS="\
 --border=rounded"
 
 eval "$(zoxide init zsh)"
+
+# Autostartx en TTY1
+  if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+    exec startx
+ fi
+export PATH="$PATH:$HOME"
+export GOOGLE_API_KEY='AQ.Ab8RN6Jcdz2KgyPuiLZe_S-cxz2H7_ui5Ru6qr8p-CwQIgZMcA'
