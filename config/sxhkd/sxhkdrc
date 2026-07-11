@@ -115,6 +115,18 @@ ctrl + shift + Up
 ctrl + shift + Down
     bspc node -s south
 #----------Rofi------------
-alt + space
-    rofi -show drun --show icons
+alt + r
+    rofi -show drun -show-icons
 
+#----------Chrome---------------
+alt + g
+    google-chrome-stable --force-device-scale-factor=1
+
+#-----------flameshot----
+Print
+    /usr/bin/flameshot gui --path /home/z0m4/Pictures/Screenshots
+
+
+#------------Gemini---------
+super + alt + g
+    alacritty --class Gemini -e bash -c "read -p 'Gemini: ' prompt; /home/z0m4/.local/bin/gemini \"\$prompt\"; read -n 1 -s -r -p 'Presiona una tecla para salir...'"
