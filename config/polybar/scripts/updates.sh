@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Cantidad de paquetes actualizables
-updates=$(apt list --upgradable 2>/dev/null | grep -v Listing | wc -l)
-
+# Cantidad de paquetes actualizables, ignorando los que contienen 'grub'
+updates=$(apt list --upgradable 2>/dev/null | grep -vE "Listing|Listando|grub|^$" | wc -l)
+#61afef
 # Hora actual
 time=$(date "+%H:%M")
 
 if [ "$updates" -eq 0 ]; then
     # Estado normal → color base (cyan suave)
-    echo "%{F#6f8f8f}$time%{F-}"
+    echo "%{F#61afef}$time%{F-}"
 else
-    # Estado alerta → rojo (rompe patrón visual)
+    # Estado alerta → rojo
     echo "%{F#a86c6c}$time%{F-}"
 fi
