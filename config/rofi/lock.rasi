@@ -1,0 +1,35 @@
+/* ~/.config/rofi/lock.rasi */
+
+* {
+    background-color: #1e1e1e;
+    text-color: #61afef; /* Tu cyan */
+    font: "Hack Nerd Font 20";
+}
+
+window {
+    width: 300px;
+    height: 150px;
+    border: 2px;
+    border-color: #61afef;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+mainbox {
+    children: [ message, inputbar ];
+    spacing: 15px;
+}
+
+message {
+    horizontal-align: 0.5;
+}
+
+entry {
+    placeholder: "Password...";
+    placeholder-color: #5c6370;
+    horizontal-align: 0.5;
+}
+
+inputbar {
+    children: [ entry ];
+}

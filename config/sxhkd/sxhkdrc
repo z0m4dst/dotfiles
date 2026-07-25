@@ -1,0 +1,171 @@
+# =========================
+# z0m4 SXHKD (BASE FINAL)
+# =========================
+
+# -------- CORE --------
+
+# Clipboard (clipz)
+ctrl + g
+    bash -c 'DISPLAY=:0 ~/.local/bin/clipz menu'
+
+# Terminal
+ctrl + alt + Return
+    ~/.local/bin/alacritty-toggle.sh
+
+
+# -------- BSPWM --------
+
+# Recargar bspwm
+ctrl + alt + r
+    bspc wm -r
+
+# Navegación de ventanas
+ctrl + alt + Left
+    bspc node -f west
+
+ctrl + alt + Right
+    bspc node -f east
+
+ctrl + alt + Up
+    bspc node -f north
+
+ctrl + alt + Down
+    bspc node -f south
+
+
+# -------- VENTANAS --------
+
+# Cerrar ventana
+ctrl + q
+    bspc node -c
+
+# Fullscreen
+#ctrl + f
+#    bspc node -t fullscreen
+
+# Toggle flotante
+ctrl + shift + space
+    bspc node -t floating
+
+
+# -------- PRESELECCIÓN --------
+
+# Definir dónde abrir la próxima ventana
+ctrl + shift + Down
+    bspc node -p south
+
+ctrl + shift + Up
+    bspc node -p north
+
+ctrl + shift + Left
+    bspc node -p west
+
+ctrl + shift + Right
+    bspc node -p east
+
+# Cancelar preselección
+ctrl + shift + c
+    bspc node -p cancel
+
+
+# -------- SISTEMA --------
+
+# Recargar sxhkd
+ctrl + alt + s
+    pkill -USR1 sxhkd
+# -------- WORKSPACES --------
+
+# Cambiar de escritorio
+alt + 1
+    bspc desktop -f ^1
+
+alt + 2
+    bspc desktop -f ^2
+
+alt + 3
+    bspc desktop -f ^3
+
+alt + 4
+    bspc desktop -f ^4
+alt + 5 
+    bspc desktop -f ^5
+alt + 6
+    bspc desktop -f ^6
+atl + 7  
+    bspc desktop -f ^7
+alt + 8
+    bspc desktop -f ^8
+# Mover ventana a escritorio
+alt + shift + 1
+    bspc node -d ^1
+
+alt + shift + 2
+    bspc node -d ^2
+
+alt + shift + 3
+    bspc node -d ^3
+
+alt + shift + 4
+    bspc node -d ^4
+
+alt + shift + 5
+     bspc node -d ^5
+
+alt + shift + 6
+     bspc node -d ^6
+
+alt + shift + 7
+     bspc node -d ^7
+
+alt + shift + 8
+     bspc node -d ^8
+
+# -------- MOVE (SWAP) --------
+
+ctrl + alt + Left
+    bspc node -s west
+
+ctrl + alt + Right
+    bspc node -s east
+
+ctrl + alt + Up
+    bspc node -s north
+
+ctrl + alt + Down
+    bspc node -s south
+#----------Rofi------------
+alt + r
+    rofi -show drun -show-icons
+
+#----------Chrome---------------
+alt + g
+    google-chrome-stable --force-device-scale-factor=1
+
+#-----------flameshot----
+#Print
+#    /usr/bin/flameshot gui --path /home/z0m4/Pictures/Screenshots
+#---- Gemini -----
+super + g 
+    /opt/google/chrome/google-chrome --profile-directory=Default --app-id=mhpcpiccfiaoabcaedpafgjabjjheekk
+
+# ------ screenshot ---
+Print
+    /home/z0m4/Scripts/screenshot.sh full
+
+ctrl + Print
+    /home/z0m4/Scripts/screenshot.sh    
+
+#--------- lock ----------
+ctrl + Return
+    /usr/bin/lock
+
+# Menú de apagado / cerrar sesión
+super + Escape
+    ~/.local/bin/powermenu
+
+# Menú rápido de Wi-Fi
+super + w
+    ~/.local/bin/wifi-menu
+# Cerrar Sesión 
+super + alt + Return
+    bspc quit

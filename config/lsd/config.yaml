@@ -1,0 +1,8 @@
+icons:
+  when: always
+
+color:
+  when: auto
+  theme: default
+
+date: relative
