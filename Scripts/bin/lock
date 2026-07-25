@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+PASSWORD="z0m4"
+MATRIX_CLASS="LockMatrix"
+TV_OUTPUT="HDMI-1"
+
+# 1. Guardar estado y preparar entorno
+SXHKD_RUNNING=$(pgrep -x sxhkd)
+POLY_RUNNING=$(pgrep -x polybar)
+
+[ -n "$SXHKD_RUNNING" ] && pkill -x sxhkd
+[ -n "$POLY_RUNNING" ] && polybar-msg cmd hide
+
+# Apagar el televisor para que todo quede centrado en la netbook
+xrandr --output "$TV_OUTPUT" --off
+
+# 2. Configurar bspwm para modo bloqueo limpio
+bspc config window_gap 0
+bspc config top_padding 0
+bspc config bottom_padding 0
+
+bspc rule -a "$MATRIX_CLASS" state=fullscreen layer=above
+alacritty --class "$MATRIX_CLASS" --option window.opacity=1.0 -e cmatrix -b -u 3 -C cyan &
+MATRIX_PID=$!
+
+sleep 0.2
+bspc node -t fullscreen
+
+# 3. Bucle de bloqueo con Rofi
+while true; do
+    input=$(rofi -dmenu -password -p "locked")
+    input=$(printf "%s" "$input" | tr -d '\r\n')
+
+    [ -z "$input" ] && continue
+
+    if [ "$input" = "$PASSWORD" ]; then
+        break
+    fi
+done
+
+# 4. Limpieza y restauración
+kill $MATRIX_PID 2>/dev/null
+pkill -f "cmatrix"
+
+# Volver a encender el televisor de forma independiente a la derecha
+xrandr --output "$TV_OUTPUT" --mode 1360x768 --right-of eDP-1 --auto
+
+bspc config window_gap 3
+bspc config top_padding 4
+bspc config bottom_padding 4
+
+# Restaurar servicios
+[ -n "$SXHKD_RUNNING" ] && sxhkd &
+[ -n "$POLY_RUNNING" ] && polybar-msg cmd show
+tput cnorm
+stty sane
+bspc wm -r
+clear

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Listar redes Wi-Fi disponibles
+wifi_list=$(nmcli -f SSID device wifi list | sed 1d | sed 's/^[ \t]*//;s/[ \t]*$//' | sed '/^$/d' | sort -u)
+
+# Mostrar menú con Rofi
+chosen_wifi=$(echo "$wifi_list" | rofi -dmenu -i -p "Wi-Fi Connect")
+
+# Si se selecciona una red, pedir contraseña y conectar
+if [ -n "$chosen_wifi" ]; then
+    if nmcli connection show | grep -q "$chosen_wifi"; then
+        nmcli connection up "$chosen_wifi"
+    else
+        wifi_password=$(rofi -dmenu -password -p "Password for $chosen_wifi")
+        nmcli device wifi connect "$chosen_wifi" password "$wifi_password"
+    fi
+fi

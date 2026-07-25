@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+CACHE="$HOME/.cache/clipz"
+HIST="$CACHE/history"
+
+mkdir -p "$CACHE"
+touch "$HIST"
+
+case "$1" in
+          daemon)
+    last=""
+
+    while true; do
+        current=$(xclip -selection clipboard -o 2>/dev/null)
+
+        # limpiar
+        current=$(echo "$current" | sed 's/^[ \t]*//;s/[ \t]*$//')
+
+        if [[ -n "$current" && "$current" != "$last" ]]; then
+            echo "$current" >> "$HIST"
+            last="$current"
+
+            tail -n 100 "$HIST" > "$CACHE/tmp" && mv "$CACHE/tmp" "$HIST"
+        fi
+
+        sleep 0.3
+    done
+    ;;
+
+          menu)
+    selection=$(tac "$HIST" | awk '!seen[$0]++' | DISPLAY=${DISPLAY:-:0} rofi -dmenu -p "clipboard")
+
+    if [[ -n "$selection" ]]; then
+        echo -n "$selection" | xclip -selection clipboard
+    fi
+    ;;
+
+esac

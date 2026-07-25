@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Opciones del menú
+chosen=$(printf "  Cerrar sesión (LightDM)\n󰜉  Reiniciar\n󰐥  Apagar" | rofi -dmenu -i -p "Power Menu")
+
+case "$chosen" in
+    "  Cerrar sesión (LightDM)")
+        bspc quit
+        ;;
+    "󰜉  Reiniciar")
+        systemctl reboot
+        ;;
+    "󰐥  Apagar")
+        systemctl poweroff
+        ;;
+esac
